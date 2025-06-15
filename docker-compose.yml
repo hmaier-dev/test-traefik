@@ -1,0 +1,26 @@
+version: "3.3"
+
+services:
+  traefik:
+    image: "traefik:v3.3"
+    container_name: "traefik"
+    command:
+      #- "--log.level=DEBUG"
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      ## do not expose containers unless it is said so
+      - "--providers.docker.exposedbydefault=false"
+      - "--entryPoints.web.address=:80"
+      ## Static Configuration file
+      - "--configFile=/etc/traefik/traefik.yaml"
+    ports:
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      ## Static Config
+      - "./traefik.yml:/etc/traefik/traefik.yml:ro"
+      ## Dynamic Config
+      - "./rules:/rules"
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+    network:
+      - traefik-net
