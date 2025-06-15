@@ -1,0 +1,27 @@
+## Static Configuration
+global:
+  checkNewVersion: false
+  sendAnonymousUsage: false
+
+log:
+  level: debug
+
+api:
+  insecure: true
+  dashboard: true
+
+providers:
+  docker:
+    exposedByDefault: false
+    network: traefik-net
+  file:
+    directory: "/rules"
+    watch: true
+
+entryPoints:
+  web:
+    address: ":80"
+  websecure:
+    address: ":443"
+    http:
+      tls: {}
