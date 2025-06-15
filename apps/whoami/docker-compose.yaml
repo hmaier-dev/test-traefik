@@ -1,5 +1,15 @@
+name: whoami
+services:
   whoami:
     # A container that exposes an API to show its IP address
     image: traefik/whoami
+    container_name: whoami
     labels:
+      - "traefik.enable=true"
       - "traefik.http.routers.whoami.rule=Host(`whoami.docker.localhost`)"
+    networks:
+      - traefik-net
+
+networks:
+  traefik-net:
+    external: true
