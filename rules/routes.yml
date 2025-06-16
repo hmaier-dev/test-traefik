@@ -1,0 +1,9 @@
+http:
+  routers:
+    whoami:
+      rule: "Host(`whoami.localhost`)"
+      entryPoints:
+        - web
+        - websecure
+      service: whoami
+

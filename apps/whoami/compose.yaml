@@ -1,0 +1,11 @@
+name: whoami
+services:
+  whoami:
+    image: traefik/whoami
+    container_name: whoami
+    networks:
+      - traefik-net
+
+networks:
+  traefik-net:
+    external: true
