@@ -1,6 +1,14 @@
 http:
   services:
+    #------------------------------------
+    # small services for testing config
     whoami:
       loadBalancer:
         servers:
           - url: "http://whoami:80"
+    #------------------------------------
+    ## Wiki System using React and Node.js
+    outline:
+      loadBalancer:
+        servers:
+          - url: "http://outline:3000"

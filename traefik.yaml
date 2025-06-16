@@ -11,9 +11,9 @@ api:
   dashboard: true
 
 providers:
-  docker:
-    exposedByDefault: false
-    network: traefik-net
+  # docker:
+  #   exposedByDefault: false
+  #   network: traefik-net
   file:
     directory: "/rules"
     watch: true
