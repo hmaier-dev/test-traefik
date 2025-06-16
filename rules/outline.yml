@@ -1,0 +1,15 @@
+#------------------------------------
+## Wiki System using React and Node.js
+http:
+  routers:
+    outline:
+      rule: "Host(`outline.localhost`)"
+      entryPoints:
+        - web
+        - websecure
+      service: outline
+  services:
+    outline:
+      loadBalancer:
+        servers:
+          - url: "http://outline:3000"
