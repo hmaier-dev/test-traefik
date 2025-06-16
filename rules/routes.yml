@@ -6,10 +6,4 @@ http:
         - web
         - websecure
       service: whoami
-    outline:
-      rule: "Host(`outline.localhost`)"
-      entryPoints:
-        - web
-        # - websecure
-      service: outline
 
